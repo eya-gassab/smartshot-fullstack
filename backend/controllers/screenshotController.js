@@ -43,7 +43,7 @@ try {
     aiSummary = summary;
   }
   } catch (aiErr) {
-    onsole.warn("AI processing failed:", aiErr.message);
+    console.warn("AI processing failed:", aiErr.message);
   }
 
   //  Sauvegarde 

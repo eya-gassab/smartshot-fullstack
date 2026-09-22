@@ -1,4 +1,3 @@
-
 import Groq from "groq-sdk";
 import dotenv from "dotenv";
 dotenv.config();
@@ -8,7 +7,7 @@ const getClient = () => new Groq({ apiKey: process.env.GROQ_API_KEY });
 export const classifyText = async (text) => {
   const client = getClient();
   const response = await client.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-20b",
     messages: [
       {
         role: "system",
@@ -27,7 +26,7 @@ Return ONLY the category label. No explanation.`,
 export const generateTitle = async (text) => {
   const client = getClient();
   const response = await client.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-20b",
     messages: [
       {
         role: "system",
@@ -45,7 +44,7 @@ export const generateTitle = async (text) => {
 export const summarizeText = async (text) => {
   const client = getClient();
   const response = await client.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-20b",
     messages: [
       {
         role: "system",

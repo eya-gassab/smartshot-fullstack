@@ -10,8 +10,13 @@ const authRoutes = require("./routes/AuthRoutes");
 const app = express();
 
 // Middleware 
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(cors({
-  origin: 'https://smartshot-final.onrender.com',
+  origin: allowedOrigins,
   credentials: true,
 }));
 app.use(express.json());
