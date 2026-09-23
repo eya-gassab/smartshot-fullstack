@@ -6,8 +6,7 @@
 
 **A full-stack web app that turns screenshots into searchable, classified, summarized knowledge — using OCR and LLM analysis.**
 
-<!--[🚀 Live Demo](https://smartshot-final.onrender.com/) -->
-[📦 Repository](https://github.com/eya-gassab/smartshot-fullstack-project) · [🐛 Report a Bug](https://github.com/eya-gassab/smartshot-fullstack-project/issues)
+[🚀 Live Demo](https://smartshot-web.onrender.com/) · [📦 Repository](https://github.com/eya-gassab/smartshot-fullstack-project) · [🐛 Report a Bug](https://github.com/eya-gassab/smartshot-fullstack-project/issues)
 
 ![React](https://img.shields.io/badge/React_19-Vite-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -18,9 +17,19 @@
 
 </div>
 
-<!-- 📸 Add a screenshot or GIF of the dashboard here:
-<p align="center"><img src="docs/demo.gif" alt="SmartShot demo" width="800" /></p>
--->
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/demo1.png" alt="SmartShot Dashboard" width="300"/>
+    </td>
+    <td align="center">
+      <img src="screenshots/demo2.png" alt="SmartShot AI Analysis" width="300"/>
+    </td>
+    <td align="center">
+      <img src="screenshots/demo3.png" alt="SmartShot Organization" width="300"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -32,7 +41,7 @@
 - [Tech Stack](#️-tech-stack)
 - [Getting Started](#-getting-started)
 - [API Reference](#-api-reference)
-<!--- [Deployment](#️-deployment)-->
+- [Deployment](#️-deployment)
 - [Contributors](#-contributors)
 - [License](#-license)
 
@@ -53,17 +62,17 @@ SmartShot fixes that. Upload an image and it automatically:
 
 ## ✨ Features
 
-| | Feature | Description |
-|---|---|---|
-| 📸 | **Upload & manage** | Add screenshots and keep them in one place |
-| 🔍 | **Automatic OCR** | Text extracted from every image with Tesseract.js |
-| 🤖 | **AI analysis** | Content interpreted by Llama 3.3 70B via the Groq API |
-| 🏷️ | **Auto-classification** | Each screenshot is categorized by its content |
-| 📝 | **Smart summaries** | Concise, human-readable summary per screenshot |
-| 🔐 | **Secure auth** | JWT-based authentication with bcrypt-hashed passwords |
-| 👤 | **Private by user** | Every user sees and manages only their own screenshots |
-| 🗑️ | **Full control** | Delete stored screenshots at any time |
-| 📱 | **Responsive UI** | Works on desktop and mobile |
+|     | Feature                 | Description                                            |
+| --- | ----------------------- | ------------------------------------------------------ |
+| 📸  | **Upload & manage**     | Add screenshots and keep them in one place             |
+| 🔍  | **Automatic OCR**       | Text extracted from every image with Tesseract.js      |
+| 🤖  | **AI analysis**         | Content interpreted by Llama 3.3 70B via the Groq API  |
+| 🏷️  | **Auto-classification** | Each screenshot is categorized by its content          |
+| 📝  | **Smart summaries**     | Concise, human-readable summary per screenshot         |
+| 🔐  | **Secure auth**         | JWT-based authentication with bcrypt-hashed passwords  |
+| 👤  | **Private by user**     | Every user sees and manages only their own screenshots |
+| 🗑️  | **Full control**        | Delete stored screenshots at any time                  |
+| 📱  | **Responsive UI**       | Works on desktop and mobile                            |
 
 ---
 
@@ -83,12 +92,12 @@ flowchart LR
 
 ## 🛠️ Tech Stack
 
-| Layer | Technologies |
-|---|---|
-| **Frontend** | React 19, TypeScript, Vite, CSS |
-| **Backend** | Node.js, Express.js, Multer (uploads), JWT, bcryptjs |
-| **Database** | MongoDB, Mongoose |
-| **AI / OCR** | Tesseract.js, Groq API, Llama 3.3 70B |
+| Layer        | Technologies                                         |
+| ------------ | ---------------------------------------------------- |
+| **Frontend** | React 19, TypeScript, Vite, CSS                      |
+| **Backend**  | Node.js, Express.js, Multer (uploads), JWT, bcryptjs |
+| **Database** | MongoDB, Mongoose                                    |
+| **AI / OCR** | Tesseract.js, Groq API, Llama 3.3 70B                |
 
 ---
 
@@ -154,10 +163,10 @@ From the project root, one command starts both the backend and the frontend:
 npm run dev
 ```
 
-| Service | URL |
-|---|---|
+| Service  | URL                   |
+| -------- | --------------------- |
 | Frontend | http://localhost:5173 |
-| Backend | http://localhost:5000 |
+| Backend  | http://localhost:5000 |
 
 ---
 
@@ -167,32 +176,32 @@ Routes marked 🔒 require a valid JWT in the `Authorization: Bearer <token>` he
 
 ### Authentication
 
-| Method | Endpoint | Description | Auth |
-|---|---|---|:---:|
-| `POST` | `/api/auth/register` | Create an account | — |
-| `POST` | `/api/auth/login` | Log in and receive a JWT | — |
-| `POST` | `/api/auth/update-email` | Update account email | 🔒 |
-| `POST` | `/api/auth/update-password` | Update account password | 🔒 |
+| Method | Endpoint                    | Description              | Auth |
+| ------ | --------------------------- | ------------------------ | :--: |
+| `POST` | `/api/auth/register`        | Create an account        |  —   |
+| `POST` | `/api/auth/login`           | Log in and receive a JWT |  —   |
+| `POST` | `/api/auth/update-email`    | Update account email     |  🔒  |
+| `POST` | `/api/auth/update-password` | Update account password  |  🔒  |
 
 ### Screenshots
 
-| Method | Endpoint | Description | Auth |
-|---|---|---|:---:|
-| `POST` | `/api/screenshots/upload` | Upload a screenshot (runs OCR + AI analysis) | 🔒 |
-| `GET` | `/api/screenshots` | List the current user's screenshots | 🔒 |
-| `DELETE` | `/api/screenshots/:id` | Delete a screenshot | 🔒 |
+| Method   | Endpoint                  | Description                                  | Auth |
+| -------- | ------------------------- | -------------------------------------------- | :--: |
+| `POST`   | `/api/screenshots/upload` | Upload a screenshot (runs OCR + AI analysis) |  🔒  |
+| `GET`    | `/api/screenshots`        | List the current user's screenshots          |  🔒  |
+| `DELETE` | `/api/screenshots/:id`    | Delete a screenshot                          |  🔒  |
 
 ### Health
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | Server health check |
+| Method | Endpoint | Description         |
+| ------ | -------- | ------------------- |
+| `GET`  | `/`      | Server health check |
 
 ---
 
-<!--## ☁️ Deployment
+## ☁️ Deployment
 
-The live demo is hosted at **[smartshot-final.onrender.com](https://smartshot-final.onrender.com/)**.
+The live demo is hosted at **[smartshot-final.onrender.com](https://smartshot-web.onrender.com/)**.
 
 | Component | Build |
 |---|---|
@@ -203,16 +212,16 @@ The live demo is hosted at **[smartshot-final.onrender.com](https://smartshot-fi
 
 For production, set all environment variables through your hosting platform's dashboard — never in the repository.
 
------>
+---
 
 ## 👥 Contributors
 
 SmartShot was built collaboratively, covering frontend, backend, database, and AI integration.
 
-| | Name |
-|---|---|
-| 👩‍💻 | **[Eya Gassab](https://github.com/eya-gassab)** |
-| 🤝 | **[Asma Mokadem](https://github.com/Asma-mokadem)** |
+|     | Name                                                |
+| --- | --------------------------------------------------- |
+| 👩‍💻  | **[Eya Gassab](https://github.com/eya-gassab)**     |
+| 🤝  | **[Asma Mokadem](https://github.com/Asma-mokadem)** |
 
 ---
 
